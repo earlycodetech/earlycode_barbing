@@ -1,3 +1,6 @@
+<?php
+    require "assets/modules/sessions.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,94 +16,75 @@
 <body class="bg-warning">
     <!-- Nav -->
     <section>
-        <nav class="navbar navbar-expand-lg bg-warning navbar-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="assets/img/logo.png" alt="logo" width="70">
-                    Early Code Saloon
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-secondary text-light" href="#">Book Appointment</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php
+            include_once "assets/modules/nav.php";
+        ?>
     </section>
 
     <section class="border-bottom border-top border-white py-5">
         <div class="container">
             <div class="card mx-auto" style="max-width: 500px;">
-                <div class="card-body">
+                <div class="p-2">
+                    <?php echo error_msg(); echo success_msg(); ?>
+                </div>
+        
+                <form  method="post" action="app/register_control.php" class="card-body">
                     <div class="card-header bg-transparent text-center mb-3">Create An Account</div>
 
                     <label for="" class="form-label">Full Name</label>
-                    <input type="text" name="" class="form-control mb-3">
+                    <input type="text" name="name" class="form-control mb-3">
 
                     <label for="" class="form-label">Email</label>
-                    <input type="email" name="" class="form-control mb-3">
+                    <input type="email" name="email" class="form-control mb-3">
 
                     <label for="" class="form-label">Phone</label>
-                    <input type="tel" name="" class="form-control mb-3">
+                    <input type="tel" name="phone" class="form-control mb-3">
 
                     <label for="" class="form-label">Date of Birth</label>
-                    <input type="date" name="" class="form-control mb-3">
+                    <input type="date" name="dob" class="form-control mb-3">
 
                     <label for="" class="form-label">Password</label>
-                    <input type="password" name="" class="form-control mb-4">
+                    <input type="password" name="password" class="form-control mb-4">
 
                     <label for="" class="form-label">Confirm Password</label>
-                    <input type="password" name="" class="form-control mb-4">
+                    <input type="password" name="password_confirm" class="form-control mb-4">
 
-                    <button class="btn btn-primary">Create Account</button>
+                    <button name="register" class="btn btn-primary">Create Account</button>
 
-                </div>
+                </form>
             </div>
         </div>
     </section>
 
 
-<!-- footer -->
-<section class="border-bottom border-white">
-    <div class="row container my-5 ">
-        <div class="col-lg-4 mb-3 text-center">
-            <img src="assets/img/logo.png" alt="logo" width="100" height="100" class="img-thumbnail rounded-circle">
+    <!-- footer -->
+    <section class="border-bottom border-white">
+        <div class="row container my-5 ">
+            <div class="col-lg-4 mb-3 text-center">
+                <img src="assets/img/logo.png" alt="logo" width="100" height="100" class="img-thumbnail rounded-circle">
+            </div>
+
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 mb-3">
+                <ul class="d-flex flex-column list-unstyled gap-4 align-items-center align-items-lg-start">
+                    <li>
+                        <a href="index.php" class="nav-link text-white">Home</a>
+                    </li>
+                    <li>
+                        <a href="contact.php" class="nav-link text-white">Contact</a>
+                    </li>
+                    <li>
+                        <a href="appointment.php" class="btn btn-secondary text-white">Bool Appointment</a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4 mb-3">
-            <ul class="d-flex flex-column list-unstyled gap-4 align-items-center align-items-lg-start">
-                <li>
-                    <a href="index.php" class="nav-link text-white">Home</a>
-                </li>
-                <li>
-                    <a href="contact.php" class="nav-link text-white">Contact</a>
-                </li>
-                <li>
-                    <a href="appointment.php" class="btn btn-secondary text-white">Bool Appointment</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    </section>
 
-</section>
-
-<p class="text-center py-3 text-light">
-    &copy; 2023. Early Code Saloon
-</p>
+    <p class="text-center py-3 text-light">
+        &copy; 2023. Early Code Saloon
+    </p>
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
