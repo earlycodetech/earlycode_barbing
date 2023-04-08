@@ -32,7 +32,7 @@
                     <div class="card-header bg-transparent text-center mb-3">Create An Account</div>
 
                     <label for="" class="form-label">Full Name</label>
-                    <input type="text" name="name" class="form-control mb-3">
+                    <input type="text" name="name" class="form-control mb-3" required>
 
                     <label for="" class="form-label">Email</label>
                     <input type="email" name="email" class="form-control mb-3">
