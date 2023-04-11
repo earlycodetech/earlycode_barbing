@@ -22,4 +22,12 @@
         }
     }
 
+
+    function authGuard(){
+        if (!isset($_SESSION['user'])) {
+            $_SESSION['error_msg'] = "Login to continue!";
+            header("Location: ../login");
+        }
+    }
+
 ?>

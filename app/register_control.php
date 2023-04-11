@@ -1,7 +1,11 @@
 <?php
+    require "../assets/modules/dbConnect.php";
     // 1. Check if the button is clicked
     // var_dump($_POST);
     session_start();
+
+    // SET DEFAULT TIMEZONE
+    date_default_timezone_set('Africa/Lagos');
 
 
     if (!isset($_POST['register'])) {
@@ -16,7 +20,7 @@
         $dob = trim($_POST['dob']);
         $password = trim($_POST['password']);
         $password_confirm = trim($_POST['password_confirm']);
-
+        $date = date('Y-m-d');
 
         // 3. Build Constraints
         if ($fullName === "" || $email === "" || $phone === "" || $dob === "" || $password === "" || $password_confirm === "" ) {
@@ -36,7 +40,22 @@
             header("Location: ../register");
         }  
         else {
-            $_SESSION['success_msg'] = "Account has been created!";
-            header("Location: ../register");
+            // Hash the password
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+
+            $sql = "INSERT INTO users(full_name, email, phone, dob, passwords, created_at) VALUE(?,?,?,?,?,?)";
+            $stmt = mysqli_stmt_init($connectDB);
+            mysqli_stmt_prepare($stmt, $sql);
+            mysqli_stmt_bind_param($stmt,"ssssss", $fullName, $email, $phone, $dob,$hash, $date);
+
+            $execute = mysqli_stmt_execute($stmt);
+
+            if (!$execute) {
+                $_SESSION['error_msg'] = "Oops, something went wrong!";
+                header("Location: ../register");
+            }else{
+                $_SESSION['success_msg'] = "Account created successfully!";
+                header("Location: ../login");
+            }
         }
     }
