@@ -18,7 +18,7 @@
                             <a class="nav-link" href="#">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-secondary text-light" href="#">Book Appointment</a>
+                            <a class="nav-link btn btn-secondary text-light" href="login">Book Appointment</a>
                         </li>
                     </ul>
                 </div>

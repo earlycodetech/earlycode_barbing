@@ -15,49 +15,62 @@
 
 <body>
     <section>
-        <nav class="navbar bg-warning fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Barbing</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas bg-success offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Barbing</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <a href="../app/logout" class="nav-link text-danger">Logout</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+       <?php include_once "../assets/modules/app_nav.php"; ?>
     </section>
 
     <section class="pt-4">
         <div class="container mt-5">
             <?php echo $_SESSION['user']; ?>
+
+        <div class="card shadow mx-auto w-75">
+            <div class="card-body">
+                <p class="h3">Welcome Full Name</p>
+
+                <div class="row">
+                    <div class="col-md-8 mb-2">
+                        <div class="row border p-3 mb-3">
+                            <div class="col-4">
+                                Name:
+                            </div>
+                            <div class="col-8">
+                                John Doe
+                            </div>
+                        </div>
+        
+                        <div class="row border p-3 mb-3">
+                            <div class="col-4">
+                                Email:
+                            </div>
+                            <div class="col-8">
+                                John Doe@gmail.com
+                            </div>
+                        </div>
+        
+                        <div class="row border p-3 mb-3">
+                            <div class="col-4">
+                                Phone:
+                            </div>
+                            <div class="col-8">
+                                0292029202
+                            </div>
+                        </div>
+        
+                        <div class="row border p-3 mb-3">
+                            <div class="col-4">
+                                Date of Birth:
+                            </div>
+                            <div class="col-8">
+                                2023-16-12
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 my-3">
+                        <img src="../assets/img/large.jpg" style="object-fit: cover;" class="w-100" height="300">
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
