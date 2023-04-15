@@ -1,6 +1,13 @@
 <?php
+    require "../assets/modules/dbConnect.php";
     require '../assets/modules/sessions.php';
     authGuard();
+
+    $id = $_SESSION['user'];
+    $sql = "SELECT * FROM users WHERE id = '$id' ";
+    $query = mysqli_query($connectDB, $sql);
+
+    $user = mysqli_fetch_assoc($query); // This converts the php object to an associative array
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,11 +27,10 @@
 
     <section class="pt-4">
         <div class="container mt-5">
-            <?php echo $_SESSION['user']; ?>
 
         <div class="card shadow mx-auto w-75">
             <div class="card-body">
-                <p class="h3">Welcome Full Name</p>
+                <p class="h3">Welcome <?php echo $user['full_name'] ?></p>
 
                 <div class="row">
                     <div class="col-md-8 mb-2">
@@ -33,7 +39,7 @@
                                 Name:
                             </div>
                             <div class="col-8">
-                                John Doe
+                            <?php echo $user['full_name'] ?>
                             </div>
                         </div>
         
@@ -42,7 +48,7 @@
                                 Email:
                             </div>
                             <div class="col-8">
-                                John Doe@gmail.com
+                            <?php echo $user['email'] ?>
                             </div>
                         </div>
         
@@ -51,7 +57,7 @@
                                 Phone:
                             </div>
                             <div class="col-8">
-                                0292029202
+                            <?php echo $user['phone'] ?>
                             </div>
                         </div>
         
@@ -60,7 +66,7 @@
                                 Date of Birth:
                             </div>
                             <div class="col-8">
-                                2023-16-12
+                            <?php echo $user['dob'] ?>
                             </div>
                         </div>
                     </div>
