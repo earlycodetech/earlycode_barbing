@@ -33,7 +33,7 @@
                 <div class="card-body">
                 <?php echo success_msg(); echo error_msg(); ?>
                     <!-- Form to update picture -->
-                    <form action="" method="post">
+                    <form action="../app/avatar_control.php" method="post" enctype="multipart/form-data">
                         <label for="fileSelect">
                             <img src="../assets/img/care.jpg" style="object-fit: cover; object-position: top;" width="150" height="150" class="rounded">
                         </label>
