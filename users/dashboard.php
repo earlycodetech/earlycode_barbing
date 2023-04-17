@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="col-md-4 my-3">
-                        <img src="../assets/img/avatars/<?php echo $user['avatar']; ?>" style="object-fit: cover;" class="w-100" height="300">
+                        <img src="../assets/img/avatars/<?php echo $user['avatar'].'?'.mt_rand() ?>" style="object-fit: cover;" class="w-100" height="300">
                     </div>
                 </div>
             </div>

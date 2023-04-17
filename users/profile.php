@@ -35,7 +35,7 @@
                     <!-- Form to update picture -->
                     <form action="../app/avatar_control.php" method="post" enctype="multipart/form-data">
                         <label for="fileSelect">
-                            <img src="../assets/img/care.jpg" style="object-fit: cover; object-position: top;" width="150" height="150" class="rounded">
+                            <img src="../assets/img/avatars/<?php echo $user['avatar'].'?'.mt_rand() ?>" style="object-fit: cover; object-position: top;" width="150" height="150" class="rounded">
                         </label>
                         <div class="input-group w-50 my-4">
                             <input type="file" id="fileSelect" name="file" accept="image/*" class="form-control">
