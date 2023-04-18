@@ -55,19 +55,26 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                        $sql = "SELECT * FROM styles WHERE userid = '$id' ORDER BY id DESC LIMIT 20";
+                        $query = mysqli_query($connectDB, $sql);
+
+                        while($row = mysqli_fetch_assoc($query)){
+                    ?>
                     <tr>
-                        <td>1</td>
-                        <td>Low Cut</td>
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['title']; ?></td>
                         <td>
-                            <a href="" class="btn btn-primary">View</a>
+                            <a href="view-style?q=<?php echo $row['id']; ?>" class="btn btn-primary">View</a>
                         </td>
                         <td>
-                            <form action="" method="post">
-                                <input type="hidden" name="">
-                                <button class="btn btn-danger">Delete</button>
+                            <form action="../app/delete_control.php" onsubmit="return confirm('Are you sure? Once records are deleted, they cannot be gotten back')" method="post">
+                                <input type="hidden" name="style_id" value="<?php echo $row['id']; ?>">
+                                <button class="btn btn-danger" name="delete-style">Delete</button>
                             </form>
                         </td>
                     </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
