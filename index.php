@@ -1,3 +1,6 @@
+<?php
+    require "assets/modules/dbConnect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,46 +102,22 @@
         </p>
 
         <div class="row">
+            <?php
+                $sql = "SELECT * FROM styles ORDER BY id DESC";
+                $query = mysqli_query($connectDB, $sql);
+                while ($row = mysqli_fetch_assoc($query)) {
+            ?>
             <div class="col-lg-3 col-md-4 col-6 mb-3">
-                <div class="position-relative">
-                    <img src="assets/img/style.jpg" alt="style" class="img-fluid rounded-3">
+                <div class="position-relative h-100">
+                    <img src="assets/img/styles/<?php echo $row['style_image'].'?'.mt_rand() ?>" alt="style" class="img-fluid h-100 rounded-3">
                     <div class="position-absolute top-0 start-0 w-100 h-100 rounded-3" style="background-color: #0000003e;"></div>
 
                     <p class="position-absolute w-100 text-center top-50 fw-bold text-white fs-5">
-                        The Log
+                    <?php echo $row['title'] ?>
                     </p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 mb-3">
-                <div class="position-relative">
-                    <img src="assets/img/style.jpg" alt="style" class="img-fluid rounded-3">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 rounded-3" style="background-color: #0000003e;"></div>
-
-                    <p class="position-absolute w-100 text-center top-50 fw-bold text-white fs-5">
-                        The Log
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 mb-3">
-                <div class="position-relative">
-                    <img src="assets/img/style.jpg" alt="style" class="img-fluid rounded-3">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 rounded-3" style="background-color: #0000003e;"></div>
-
-                    <p class="position-absolute w-100 text-center top-50 fw-bold text-white fs-5">
-                        The Log
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6 mb-3">
-                <div class="position-relative">
-                    <img src="assets/img/style.jpg" alt="style" class="img-fluid rounded-3">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 rounded-3" style="background-color: #0000003e;"></div>
-
-                    <p class="position-absolute w-100 text-center top-50 fw-bold text-white fs-5">
-                        The Log
-                    </p>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </section>

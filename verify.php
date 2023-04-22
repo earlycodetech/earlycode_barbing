@@ -28,18 +28,19 @@
                     <?php echo error_msg(); echo success_msg(); ?>
                 </div>
         
-                <form  method="post" action="app/login_control.php" class="card-body">
-                    <div class="card-header bg-transparent text-center mb-3">Login To Your Account</div>
+                <form  method="post" action="app/password_reset_verify_control.php" class="card-body">
+                    <div class="card-header bg-transparent text-center mb-3">Reset Your Password</div>
 
-                    <label for="" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control mb-3">
+                    <label for="" class="form-label">Token</label>
+                    <input type="number" autocomplete="off" autofocus name="token" class="form-control mb-3">
 
-                    <label for="" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control mb-4">
+                    <label for="" class="form-label">New Password</label>
+                    <input type="password" autocomplete="off" name="password" class="form-control mb-3">
 
-                    <button name="login" class="btn btn-primary">Login</button>
+                    <button name="reset-password" class="btn btn-primary">
+                        Change Password
+                    </button>
 
-                    <a href="reset-password" class="my-3 d-block">Forgot Password?</a>
                 </form>
             </div>
         </div>

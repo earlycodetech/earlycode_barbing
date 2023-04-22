@@ -15,6 +15,12 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="login">Sign In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="register">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Contact Us</a>
                         </li>
                         <li class="nav-item">

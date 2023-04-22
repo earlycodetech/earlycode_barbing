@@ -25,21 +25,19 @@
         <div class="container">
             <div class="card mx-auto" style="max-width: 500px;">
                 <div class="p-2">
-                    <?php echo error_msg(); echo success_msg(); ?>
+                    <?php echo error_msg(); echo success_msg(); echo time(); ?>
                 </div>
         
-                <form  method="post" action="app/login_control.php" class="card-body">
-                    <div class="card-header bg-transparent text-center mb-3">Login To Your Account</div>
+                <form  method="post" action="app/reset_password_control.php" class="card-body">
+                    <div class="card-header bg-transparent text-center mb-3">Reset Your Password</div>
 
                     <label for="" class="form-label">Email</label>
                     <input type="email" name="email" class="form-control mb-3">
 
-                    <label for="" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control mb-4">
+                    <button name="send-token" class="btn btn-primary">
+                        Reset
+                    </button>
 
-                    <button name="login" class="btn btn-primary">Login</button>
-
-                    <a href="reset-password" class="my-3 d-block">Forgot Password?</a>
                 </form>
             </div>
         </div>
